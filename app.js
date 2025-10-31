@@ -1,3 +1,49 @@
+  const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1.2,
+      spaceBetween: 30,
+      loop: false,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: { slidesPerView: 1.5 },
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 4 },
+
+
+      },
+    });
+
+    const swiper2 = new Swiper(".mySwiper2", {
+      loop: false,
+      slidesPerView: 1.2,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      effect: "slide",
+    });
+
+
+window.addEventListener('load', () => {
+  swiper.update();
+  swiper.pagination.render();
+swiper.pagination.update();
+});
+
 const navItems = document.querySelectorAll('.nav-items');
 const button = document.querySelectorAll('.center-nav-button-2');
 
