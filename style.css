@@ -44,6 +44,7 @@ header {
 }
 
 header .container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +54,7 @@ header .container {
 }
 
 header .container-2 {
+   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -477,7 +479,7 @@ header .container-2 {
 
 /* //slider styling */
 .mySwiper {
-  height: 380px !important;
+  height: 400px !important;
   /* Fix total Swiper height */
 }
 
@@ -526,7 +528,11 @@ header .container-2 {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
-
+.swiper-pagination {
+  bottom: 10px !important; /* move it up or down */
+  position: absolute;
+  z-index: 10;
+}
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 16px !important;
@@ -1880,7 +1886,7 @@ background-color: white;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    width: 200px;
+    width: 180px;
     background: #fff;
     position: relative;
     text-align: center;
@@ -1890,7 +1896,7 @@ background-color: white;
     border: 1px solid #a7a7a7;
     border-radius: 14px;
     max-height: 300px;
-    width: 200px;
+    width: 180px;
     transition: all 0.3s ease-in;
   }
 
@@ -1898,7 +1904,7 @@ background-color: white;
     z-index: 9;
     position: relative;
     height: 100%;
-    width: 200px;
+    width: 180px;
     transition: all 0.3s ease-in;
   }
 
@@ -1908,7 +1914,7 @@ background-color: white;
   }
 
   .card-3 {
-    width: 200px;
+    width: 180px;
     border: 1px solid #000;
     border-radius: 10px;
     border-bottom-right-radius: 16px;
@@ -1941,7 +1947,7 @@ background-color: white;
   transform: translateX(-50%);
   display: block;
   position: absolute;
-  min-height: 550px;
+  min-height: 550px;  
  height:auto;
 }
 .grid-sec {
@@ -1954,6 +1960,12 @@ background-color: white;
   width: 100px;
 }
 .footer-row .header .svgss svg{
-  width: 250px;
+  width: 200px;
+}
+.section-5-inner .img-row img{
+  width: 100px;
+}
+.center-logo-img img{
+width: 120px;
 }
 }

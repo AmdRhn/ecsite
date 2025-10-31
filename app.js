@@ -38,15 +38,19 @@ window.addEventListener('scroll', () => {
   }
 });
 
-const hamburger = document.getElementById('hamburger');
+const hamburgers = document.querySelectorAll('.hamburger');
+
     const offcanvas = document.querySelector('.off-canvas-menu');
 const close =document.getElementById('close')
-    hamburger.addEventListener('click', () => {
+    hamburgers.forEach(hamburger => {
+hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       offcanvas.classList.toggle('open');
-    });
+    });});
  close.addEventListener('click', () => {
-      hamburger.classList.remove('active');
+      hamburgers.forEach(hamburger =>{
+        hamburger.classList.remove('active');
+      })
       offcanvas.classList.remove('open');
     });
 
