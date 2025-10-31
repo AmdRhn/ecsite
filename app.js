@@ -61,3 +61,30 @@ hamburger.addEventListener('click', () => {
         offcanvas.classList.remove('open');
       }
     });
+
+    const scrollToTopBtn=document.getElementById('scrollToTop');
+    window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+});
+scrollToTopBtn.addEventListener("click", () => {
+  const startPosition = window.scrollY;
+  const duration = 1000; // time in milliseconds (make bigger for slower)
+  const startTime = performance.now();
+
+  function scrollStep(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    window.scrollTo(0, startPosition * (1 - ease));
+
+    if (elapsed < duration) {
+      requestAnimationFrame(scrollStep);
+    }
+  }
+
+  requestAnimationFrame(scrollStep);
+});
