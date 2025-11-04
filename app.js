@@ -1,6 +1,7 @@
   const swiper = new Swiper(".mySwiper", {
       slidesPerView: 1.2,
       spaceBetween: 30,
+      centeredSlides: true,
       loop: false,
       pagination: {
         el: ".swiper-pagination",
@@ -12,8 +13,8 @@
       },
       breakpoints: {
         0: { slidesPerView: 1.5 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 4 },
+        640: { slidesPerView: 2.5 },
+        1024: { slidesPerView: 3.5 },
 
 
       },
@@ -56,18 +57,35 @@ navItems.forEach(item => {
   });
 
   item.addEventListener('mouseleave', () => {
+    
     dropdown.style.display = 'none';
   });
 });
-button.forEach(item => {
-  const dropdown = item.querySelector('.dropdown-menu-2');
 
+
+button.forEach(item => {
+  const dropdown2 = item.querySelector('.dropdown-menu-2');
+
+  // SHOW dropdown on hover
   item.addEventListener('mouseenter', () => {
-    dropdown.style.display = 'block';
+    dropdown2.style.display = 'block';
   });
 
+  // HIDE dropdown when both item and dropdown are no longer hovered
   item.addEventListener('mouseleave', () => {
-    dropdown.style.display = 'none';
+    setTimeout(() => {
+      if (!item.matches(':hover') && !dropdown2.matches(':hover')) {
+        dropdown2.style.display = 'none';
+      }
+    }, 100);
+  });
+
+  dropdown2.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+      if (!item.matches(':hover') && !dropdown2.matches(':hover')) {
+        dropdown2.style.display = 'none';
+      }
+    }, 100);
   });
 });
 
