@@ -1,0 +1,78 @@
+.grid-bg{
+  min-height: 510px;
+  max-height: 510px;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: -59px;
+}
+
+.container{
+    display: flex;
+    max-width: 1200px;
+    margin:0 auto;
+    gap: 16px;
+}
+.contai-page-2 {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.board-page-2  {
+position: relative;
+  width: 176px;
+  height: 123px;
+  background: white;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-page-2::after {
+  content: "";
+  position: absolute;
+  bottom: -60.8px;
+  left: 50%;
+  background-color: white;
+  border-bottom: 1px solid #dedede;
+  border-left: 1px solid #dedede;
+  border-right: 1px solid #dedede;
+  width: 8px;
+  height: 60px;
+
+  transform: translateX(-50%);
+}
+
+
+
+.arrow-page-2 {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  font-size: 14px;
+}
+/* Hover effect */
+.board-page-2:hover {
+  border-color: black;
+}
+
+.board-page-2:hover::after {
+  border-color: black;
+}
+
+.board-page-2:hover .arrow-svg {
+  fill: #000000;
+  stroke: white;
+  transition: all 0.1s ease-in;
+}
+
+.svg-text {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}

@@ -14,7 +14,10 @@
       breakpoints: {
         0: { slidesPerView: 1.5 },
         640: { slidesPerView: 2.5 },
-        1024: { slidesPerView: 3.5 },
+     1024: { 
+      slidesPerView: 'auto',
+      centeredSlides: true
+    },
 
 
       },
