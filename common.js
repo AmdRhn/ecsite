@@ -4,5 +4,5 @@ async function loadHTML(id, file) {
   el.innerHTML = await res.text();
 }
 
-loadHTML("headers", "header.html");
+
 loadHTML("footer", "footer.html");

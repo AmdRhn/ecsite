@@ -1,45 +1,5 @@
-  const swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1.2,
-      spaceBetween: 30,
-      centeredSlides: true,
-      loop: false,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        0: { slidesPerView: 1.5 },
-        640: { slidesPerView: 2.5 },
-     1024: { 
-      slidesPerView: 'auto',
-      centeredSlides: true
-    },
+  document.addEventListener("DOMContentLoaded", () => {
 
-
-      },
-    });
-
-    const swiper2 = new Swiper(".mySwiper2", {
-      loop: false,
-      slidesPerView: 1.2,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      effect: "slide",
-    });
 
 
 window.addEventListener('load', () => {
@@ -69,12 +29,10 @@ navItems.forEach(item => {
 button.forEach(item => {
   const dropdown2 = item.querySelector('.dropdown-menu-2');
 
-  // SHOW dropdown on hover
+
   item.addEventListener('mouseenter', () => {
     dropdown2.style.display = 'block';
   });
-
-  // HIDE dropdown when both item and dropdown are no longer hovered
   item.addEventListener('mouseleave', () => {
     setTimeout(() => {
       if (!item.matches(':hover') && !dropdown2.matches(':hover')) {
@@ -120,8 +78,6 @@ hamburger.addEventListener('click', () => {
       })
       offcanvas.classList.remove('open');
     });
-
-    // Optional: close when clicking outside
     document.addEventListener('click', (e) => {
       if (!offcanvas.contains(e.target) && !hamburger.contains(e.target)) {
         hamburger.classList.remove('active');
@@ -139,13 +95,13 @@ hamburger.addEventListener('click', () => {
 });
 scrollToTopBtn.addEventListener("click", () => {
   const startPosition = window.scrollY;
-  const duration = 1000; // time in milliseconds (make bigger for slower)
+  const duration = 1000;
   const startTime = performance.now();
 
   function scrollStep(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const ease = 1 - Math.pow(1 - progress, 3); 
     window.scrollTo(0, startPosition * (1 - ease));
 
     if (elapsed < duration) {
@@ -154,4 +110,5 @@ scrollToTopBtn.addEventListener("click", () => {
   }
 
   requestAnimationFrame(scrollStep);
+});
 });
