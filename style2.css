@@ -337,6 +337,49 @@ swiper .swiper-wrapper {
 .ptt{
    padding:100px 0px 60px ;
 }
+.speech-bubble-blue {
+ 
+  width: fit-content;
+  margin: 10px auto 0px;
+  position: relative;
+  background-color:#66B3F5;
+  color: #ffffff;
+  padding: 12px 170px;
+  border-radius: 30px;
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  height: fit-content;
+  border: 2px solid #000;
+}
+
+.speech-bubble-blue::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 111%;
+  transform: translateY(-50%) rotate(-90deg);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid #000000;
+}
+.speech-bubble-blue::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 104%;
+  transform: translateY(-50%) rotate(-90deg);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 10px solid #66B3F5;
+  z-index: 4;
+}
+
 @media (min-width: 1024px) {
 .second-sec-2 {
   margin: 40px auto !important;
@@ -567,11 +610,32 @@ min-height: 450px;
 .pt{
   padding-top: 40px !important;
 }
+.mob-hero-2{
+  width: 100%;
+  max-width: 400px;
+  
+}
+
+    .speech-bubble-blue {
+        width: fit-content;
+        margin: 10px auto 14px;
+        position: relative;
+        background-color: #66B3F5;
+        color: #ffffff;
+        padding: 11px 114px;
+        border-radius: 30px;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 400;
+        height: fit-content;
+        border: 2px solid #000;
+    }
+
 }
 
 
 @media (min-width: 360px) and (max-width: 450px) {
-  .top-container svg{
+  .top-container .mob-hero-2{
     width: 350px !important;
     height: 165px !important;
   }

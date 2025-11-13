@@ -1,114 +1,140 @@
-  document.addEventListener("DOMContentLoaded", () => {
-
-
-
-window.addEventListener('load', () => {
-  swiper.update();
-  swiper.pagination.render();
-swiper.pagination.update();
-});
-
-const navItems = document.querySelectorAll('.nav-items');
-const button = document.querySelectorAll('.center-nav-button-2');
-
-
-navItems.forEach(item => {
-  const dropdown = item.querySelector('.dropdown-menu');
-
-  item.addEventListener('mouseenter', () => {
-    dropdown.style.display = 'block';
+document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("load", () => {
+    swiper.update();
+    swiper.pagination.render();
+    swiper.pagination.update();
   });
 
-  item.addEventListener('mouseleave', () => {
-    
-    dropdown.style.display = 'none';
-  });
-});
+  const navItems = document.querySelectorAll(".nav-items");
+  const button = document.querySelectorAll(".center-nav-button-2");
 
+  navItems.forEach((item) => {
+    const dropdown = item.querySelector(".dropdown-menu");
 
-button.forEach(item => {
-  const dropdown2 = item.querySelector('.dropdown-menu-2');
-
-
-  item.addEventListener('mouseenter', () => {
-    dropdown2.style.display = 'block';
-  });
-  item.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-      if (!item.matches(':hover') && !dropdown2.matches(':hover')) {
-        dropdown2.style.display = 'none';
-      }
-    }, 100);
-  });
-
-  dropdown2.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-      if (!item.matches(':hover') && !dropdown2.matches(':hover')) {
-        dropdown2.style.display = 'none';
-      }
-    }, 100);
-  });
-});
-
-window.addEventListener('scroll', () => {
-  const header1 = document.getElementById('header');
-  const header2 = document.getElementById('header2');
-
-  if (window.scrollY > 200) {
-    header1.classList.add('hidden');
-    header2.classList.add('active');
-  } else {
-    header1.classList.remove('hidden');
-    header2.classList.remove('active');
-  }
-});
-
-const hamburgers = document.querySelectorAll('.hamburger');
-
-    const offcanvas = document.querySelector('.off-canvas-menu');
-const close =document.getElementById('close')
-    hamburgers.forEach(hamburger => {
-hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      offcanvas.classList.toggle('open');
-    });});
- close.addEventListener('click', () => {
-      hamburgers.forEach(hamburger =>{
-        hamburger.classList.remove('active');
-      })
-      offcanvas.classList.remove('open');
-    });
-    document.addEventListener('click', (e) => {
-      if (!offcanvas.contains(e.target) && !hamburger.contains(e.target)) {
-        hamburger.classList.remove('active');
-        offcanvas.classList.remove('open');
-      }
+    item.addEventListener("mouseenter", () => {
+      dropdown.style.display = "block";
     });
 
-    const scrollToTopBtn=document.getElementById('scrollToTop');
-    window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    scrollToTopBtn.style.display = "block";
-  } else {
-    scrollToTopBtn.style.display = "none";
-  }
-});
-scrollToTopBtn.addEventListener("click", () => {
-  const startPosition = window.scrollY;
-  const duration = 1000;
-  const startTime = performance.now();
+    item.addEventListener("mouseleave", () => {
+      dropdown.style.display = "none";
+    });
+  });
 
-  function scrollStep(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3); 
-    window.scrollTo(0, startPosition * (1 - ease));
+  button.forEach((item) => {
+    const dropdown2 = item.querySelector(".dropdown-menu-2");
 
-    if (elapsed < duration) {
-      requestAnimationFrame(scrollStep);
+    item.addEventListener("mouseenter", () => {
+      dropdown2.style.display = "block";
+    });
+    item.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!item.matches(":hover") && !dropdown2.matches(":hover")) {
+          dropdown2.style.display = "none";
+        }
+      }, 100);
+    });
+
+    dropdown2.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!item.matches(":hover") && !dropdown2.matches(":hover")) {
+          dropdown2.style.display = "none";
+        }
+      }, 100);
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const header1 = document.getElementById("header");
+    const header2 = document.getElementById("header2");
+
+    if (window.scrollY > 200) {
+      header1.classList.add("hidden");
+      header2.classList.add("active");
+    } else {
+      header1.classList.remove("hidden");
+      header2.classList.remove("active");
     }
-  }
+  });
 
-  requestAnimationFrame(scrollStep);
+  const hamburgers = document.querySelectorAll(".hamburger");
+
+  const offcanvas = document.querySelector(".off-canvas-menu");
+  const close = document.getElementById("close");
+  hamburgers.forEach((hamburger) => {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      offcanvas.classList.toggle("open");
+    });
+  });
+  close.addEventListener("click", () => {
+    hamburgers.forEach((hamburger) => {
+      hamburger.classList.remove("active");
+    });
+    offcanvas.classList.remove("open");
+  });
+  document.addEventListener("click", (e) => {
+    if (!offcanvas.contains(e.target) && !hamburger.contains(e.target)) {
+      hamburger.classList.remove("active");
+      offcanvas.classList.remove("open");
+    }
+  });
+
+
+  const searchMenu = document.getElementById("search-menu");
+  
+  const searchMenu2 = document.getElementById("search-menu-2");
+const cross = document.getElementById("cross");
+const searchBox = document.getElementById("search-box-header");
+
+// Initial setup
+searchBox.style.transition = "opacity 0.3s ease";
+searchBox.style.opacity = "0";
+searchBox.style.display = "none";
+
+searchMenu.addEventListener("click", () => {
+  searchBox.style.display = "block"; // show first
+  setTimeout(() => {
+    searchBox.style.opacity = "1"; // then fade in
+  }, 10); // tiny delay to trigger transition
 });
+searchMenu2.addEventListener("click", () => {
+  searchBox.style.display = "block"; // show first
+  setTimeout(() => {
+    searchBox.style.opacity = "1"; // then fade in
+  }, 10); // tiny delay to trigger transition
+});
+
+cross.addEventListener("click", () => {
+  searchBox.style.opacity = "0"; // fade out
+  setTimeout(() => {
+    searchBox.style.display = "none"; // hide after fade completes
+  }, 300); // match the 0.3s transition duration
+});
+
+  const scrollToTopBtn = document.getElementById("scrollToTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollToTopBtn.style.display = "block";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  });
+  scrollToTopBtn.addEventListener("click", () => {
+    const startPosition = window.scrollY;
+    const duration = 1000;
+    const startTime = performance.now();
+
+    function scrollStep(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, startPosition * (1 - ease));
+
+      if (elapsed < duration) {
+        requestAnimationFrame(scrollStep);
+      }
+    }
+
+    requestAnimationFrame(scrollStep);
+  });
 });
